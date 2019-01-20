@@ -81,5 +81,6 @@ int main()
 		}
 	} while (auswahl != '3');
 
+	system("pause");
     return 0;
 }

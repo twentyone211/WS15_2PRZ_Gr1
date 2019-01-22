@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+#include <string>
+#include <fstream>
+
+
+using namespace std;
+
+
+
+void filieio::write(string a )
+{
+
+	string i = "testjojo";
+	ofstream write;
+	write.open( a , ios::app);
+	write << i << " ";
+	write.close();
+	
+
+}
+
+string filieio::readstring(string a)
+{
+	
+	ifstream read;
+	string line;
+	read.open(a);
+
+		
+	getline(read, line);
+	
+		
+	
+		
+		read.close();
+
+		return line;
+	
+
+}
+
+int filieio::readint(string a)
+{
+	int x;
+	ifstream read;
+	read.open(a);
+
+	while (read >> x)
+	{
+		//vector.pushback
+	}
+
+	read.close();
+
+
+	return 0;
+}
+
+
+
+
+
+
+filieio::filieio()
+{
+
+
+}
+
+
+filieio::~filieio()
+{
+}

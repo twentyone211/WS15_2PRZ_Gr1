@@ -95,3 +95,21 @@ void UI::getHaefen(Graph * graph)
 
 	}
 }
+
+
+throw InvalidNodeIdException("Node not found");
+
+class InvalidNodeIdException
+{
+public:
+	InvalidNodeIdException(string error) : error(error) {}
+	virtual string getError() const { return error; }
+	~InvalidNodeIdException() {}
+private:
+	const string error;
+};
+
+catch (NoPieceFoundException ex)
+	{
+		cout << ex.getError() << endl;
+	}

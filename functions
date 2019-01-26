@@ -76,3 +76,22 @@ Node* Graph::findNode(const std::string& id)
 
 
 }
+
+void UI::getHaefen(Graph * graph)
+{
+	list<Node*> templist = graph->getNodes();
+	list<Node*>::iterator NodeIt;
+	Node* tempnode;
+	int i = 0;
+
+	for (NodeIt = templist.begin(); NodeIt != templist.end(); NodeIt++)
+	{
+		tempnode = *NodeIt;
+		
+			i++;
+			maphaefen[i] = tempnode;
+		
+		
+
+	}
+}

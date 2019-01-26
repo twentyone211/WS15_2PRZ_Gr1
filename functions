@@ -1,0 +1,78 @@
+unsigned int UI::getUInt(unsigned int min , unsigned int max) const 
+{
+	unsigned int i;
+	while (!(cin >> i) || i < min || i > max) {
+		cin.clear();
+		cin.ignore(INT_MAX, '\n');
+		cout << "Wrong input ! Please select a number beetween " << min << " and " << max << endl;
+	}
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+	return i;
+}
+
+
+char UI::menu()
+{
+	char auswahl;
+
+	cout << "USERINTERFACE" << "\n\n"
+		<< "| " << "1" << " | " << setw(50) << left << "Schifffahrtswegenetz sortiert ausgeben" << "| " << "\n"
+		<< "| " << "2" << " | " << setw(50) << left << "Transportauftrag erfassen" << "| " << "\n"
+		<< "| " << "3" << " | " << setw(50) << left << "Transport planen und ausfuehren:" << "| " << "\n"
+		<< "| " << "4" << " | " << setw(50) << left << "Gesamtliste der ausgefuehrten Transporte ausgeben" << "| " << "\n"
+		<< "| " << "5" << " | " << setw(50) << left << "Positionen der Schiffe ausgeben" << "| " << "\n"
+		<< "| " << "6" << " | " << setw(50) << left << "Exit" << "| " << endl;
+
+
+	cout << "\nSelect : " << flush;
+	cin >> auswahl;
+
+
+	return auswahl;
+}
+
+
+//main 
+
+char auswahl;
+
+	do 
+	{
+		auswahl = ui.menu();
+
+		switch (auswahl)
+		{
+			case'1':
+			{
+				ui.zeigeHaefen(&graph);
+				break;
+			}
+			case'2':
+			{
+				ui.booktrip(Schiffemap , &graph);
+				break;
+			}
+		}
+	} while (auswahl != '6');
+  
+  
+  void adddoubleedges(Node*, Node* , double,Graph*);
+  
+  void adddoubleedges(Node *eins, Node *zwei, double weight, Graph *graph)
+{
+	graph->addEdge(new Route(*eins, *zwei, weight));
+	graph->addEdge(new Route(*zwei, *eins, weight));
+}
+
+
+Node* Graph::findNode(const std::string& id)
+{
+	for (Node* node : m_nodes ) {
+		if (node->getID() == id)
+			return node;
+	}
+	return NULL;
+
+
+}
